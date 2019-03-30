@@ -1,0 +1,11 @@
+#scribble notes
+
+UI notes: 
+
+Create note(note) - add the users note here
+Assign note is automatic
+Call requestAdditonalInfo() - removed the need to enter note type and now just call it from within the function
+It returns a message to print to screen
+Then based on the users responce call addAddtionalInfo()
+
+
