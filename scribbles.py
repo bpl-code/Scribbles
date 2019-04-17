@@ -7,7 +7,37 @@ from datetime import datetime
 
 class toDoList():
     def __init__(self):
-        self.toDoList = []
+        self.toDoListFull = []
+        self.toDoHigh = []
+        self.toDoLow = []
+        self.completedTasks = []
+        
+
+    #get functions
+
+    def getHighPriorityList(self):
+        return self.toDoHigh
+
+    def getLowPriorityList(self):
+        return self.toDoLow
+
+    #Core functions
+
+    def addTask(self, task):
+        if task.getPriority() == "high":
+            self.toDoHigh.append(task)
+        elif task.getPriority() == "low":
+            self.toDoLow.append(task)
+
+    def completeTask(self, task):
+        task.complete()
+
+    def undoCompleteTask(self, task):
+        task.incompleteTask()
+
+
+    
+
 
 
 class task():
@@ -17,6 +47,7 @@ class task():
         self.priority = ''
         self.deadline = ""
         self.notes = []
+        self.taskComplete = False
 
     #Get functions
 
@@ -49,6 +80,16 @@ class task():
     def setDeadline(self, deadline):
         self.deadline = deadline
 
+    def setPriority(self, priority):
+        self.priority = priority
+
+    #Core functions
+
+    def complete(self):
+        self.taskComplete = True
+    
+    def incomplete(self):
+        self.taskComplete = False
 
     
     #Note based functions
